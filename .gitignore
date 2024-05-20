@@ -1,0 +1,10 @@
+src/vendor/**/*
+!src/vendor/fetch.sh
+
+.venv
+.cache
+.user.env
+*icloud
+.DS_Store
+__pycache__/
+*.OLD.py

@@ -1,0 +1,7 @@
+### Remote dependencies
+loguru ~= 0.7.2
+orjson ~= 3.10.3
+
+### Local dependencies
+git+file://${CI_PROJECT_DIR}/src/vendor/Tigge/openant/v1.3.1
+git+file://${CI_PROJECT_DIR}/src/vendor/pyusb/pyusb/v1.2.1
