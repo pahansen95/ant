@@ -1,6 +1,6 @@
 from __future__ import annotations
-import os, sys, orjson, time
-from typing import TypedDict, Optional, NotRequired
+import os, sys, orjson, time, pathlib
+from typing import TypedDict, NotRequired
 from collections.abc import Generator
 from usb.core import Device as USBDevice
 from openant.devices import ANTPLUS_NETWORK_KEY
@@ -100,7 +100,7 @@ def main(args: tuple[str, ...], kwargs: CLI_KWARGS) -> int:
   elif subcmd == 'read':
     if len(args) > 1:
       if args[1] == '-': client_cfg = orjson.loads(sys.stdin.read())
-      else: client_cfg = orjson.loads(args[1])
+      else: client_cfg = orjson.loads(pathlib.Path(args[1]).read_bytes())
     else: client_cfg = orjson.loads(sys.stdin.read())
     return read_client(ANT_TRANSCEIVERS[kwargs['transceiver']], {
       "device_id": client_cfg['id'],
